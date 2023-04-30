@@ -15,6 +15,40 @@ In this project, we build a PaaS machine learning prediction model and deploy it
       * Other (Upon Request)
 * Verify Elastic Scale-Up Performance via Load Test with Locust, Loader.io, or a similar load test framework. (Start with 1 container or endpoint) and verify 2 or more inference endpoints scale up to 1K requests per second.
 
+## Architecture
+
+The application architecture uses AWS Lambda, Amazon API Gateway and Amplify Console. Amplify Console provides continuous deployment and hosting of the static web resources. JavaScript executed in the browser sends and receives data from a public backend API built using Lambda and API Gateway.
+
+![project_arch](assets/project_arch.png)
+
+## Results
+
+* Realtime Inference Sagemaker Endpoint that __scales up the number of instances__:
+  
+  * Load Test
+
+    * Here, we use Artillery, which is a cloud-native and open source load-testing platform. 
+
+      Load test with `artillery run ./script.yml`: [script.yml](lambda_api/script.yml)
+
+      ![artillery_loadtest_result](assets/artillery_loadtest_result.png)
+
+    * We can also monitor endpoint performance on CloudWatch consoles. 
+    
+      ![inference_endpoint_metrics](assets/inference_endpoint_metrics.png)
+
+* Lambda Function with AWS API Gateway:
+
+  Post your request to this api:
+  https://gjtxc855a8.execute-api.us-east-1.amazonaws.com/DummyStage/DT
+
+  ![postman_call_api](assets/postman_call_api.png)
+
+
+* Web app hosted in AWS Amplify:
+
+  https://master.d3saf47cr73tpe.amplifyapp.com/
+
 ## Steps
 * Set up AWS SageMaker
 
@@ -45,22 +79,10 @@ In this project, we build a PaaS machine learning prediction model and deploy it
   SageMaker inference auto scaling can monitor workloads and dynamically adjust the instance count to maintain steady and predictable endpoint performance at a low cost. Here, we use arget tracking scaling policy, which is triggered when a chosen scaling metric increases over a chosen target threshold.
   ![auto](https://github.com/JuliaJHL/imgs_readme/blob/main/final/auto.png)
 
-* Load Test
-
-  * Here, we use Artillery, which is a cloud-native and open source load-testing platform. `!!!!todo`
-  * We can also monitor endpoint performance on CloudWatch consoles. `!!!!todo`
-
-* Build a serverless web application
-
-  The application architecture uses AWS Lambda, Amazon API Gateway and Amplify Console. Amplify Console provides continuous deployment and hosting of the static web resources. JavaScript executed in the browser sends and receives data from a public backend API built using Lambda and API Gateway. `!!!!todo`
-
-
-
-
-
 ## Reference
 * [load_wine dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html)
 * [Deploy a Machine Learning Model to a Real-Time Inference Endpoint](https://aws.amazon.com/getting-started/hands-on/machine-learning-tutorial-deploy-model-to-real-time-inference-endpoint/?nc1=h_ls)
+* [Load test and optimize an Amazon SageMaker endpoint using automatic scaling](https://aws.amazon.com/blogs/machine-learning/load-test-and-optimize-an-amazon-sagemaker-endpoint-using-automatic-scaling/)
 * [Building and Load-Testing a Machine Learning Service](https://www.datacaptains.com/blog/building-and-load-testing-a-machine-learning-service)
 * [artillery documentation](https://www.artillery.io/)
 * [Build a Serverless Web Application](https://aws.amazon.com/getting-started/hands-on/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/)

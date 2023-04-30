@@ -1,0 +1,23 @@
+config:
+  target: "https://gjtxc855a8.execute-api.us-east-1.amazonaws.com"
+  phases:
+   -
+      duration: 300
+      arrivalRate: 1200
+      rampTo: 1200
+      name: "warm up"
+   -
+      duration: 600
+      arrivalRate: 1200
+      rampTo: 1200
+      name: "Max load"
+scenarios:
+  -
+    flow:
+      -
+        post:
+          headers:
+            content-type: "text/csv"
+          url: "/DummyStage/DT"
+          json: 
+            body: "14.23,1.71,2.43,15.6,127,2.8,3.06,0.28,2.29,5.64,1.04,3.92,1065"
