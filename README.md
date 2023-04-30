@@ -1,5 +1,5 @@
 # IDS721-Team-Final-Project
-In this project, we build a PaaS machine learning prediction model and deploy it on AWS SageMaker. `!!!!todo`
+In this project, we build a PaaS machine learning prediction model and deploy it on AWS SageMaker. We also uses AWS Lambda to build a serverless backened and use Amazon API Gateway to expose the Lambda function as a RESTful API. AWS Amplify is configured to host static resources for our web application. We use Artillery and CloudWatch for load testing and monitoring. `!!!!todo`
 
 ## Requirements
 * Build a containerized or PaaS machine learning prediction model and deploy it in a scalable, and elastic platform:
@@ -31,13 +31,14 @@ In this project, we build a PaaS machine learning prediction model and deploy it
 
 * Deploy the ML model
 
-  We use AWS SDK -Boto3 to deploy our model.
+  We use AWS SDK -Boto3 to deploy our trained model to a Real-Time Inference endpoint.
   1. Create a SageMaker model from the model artifact
   ![artifact](https://github.com/JuliaJHL/imgs_readme/blob/main/final/artifact.png)
   2. Create an endpoint configuration to specify properties, including instance type and count
   ![endpoint](https://github.com/JuliaJHL/imgs_readme/blob/main/final/endpoint.png)
   3. Create the endpoint using the endpoint configuration
   ![create](https://github.com/JuliaJHL/imgs_readme/blob/main/final/create.png)
+  Here's our S3 bucket url: https://wine-prediction-frontend.s3.amazonaws.com/wine.html
   
 * Configure auto scaling for endpoint
 
@@ -46,8 +47,8 @@ In this project, we build a PaaS machine learning prediction model and deploy it
 
 * Load Test
 
-  Here, we use Artillery, which is a cloud-native and open source load-testing platform. `!!!!todo`
-  We can also monitor endpoint performance on CloudWatch consoles. `!!!!todo`
+  * Here, we use Artillery, which is a cloud-native and open source load-testing platform. `!!!!todo`
+  * We can also monitor endpoint performance on CloudWatch consoles. `!!!!todo`
 
 * Build a serverless web application
 
