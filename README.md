@@ -2,6 +2,10 @@
 In this project, we build a PaaS machine learning prediction model and deploy it on AWS SageMaker. We also uses AWS Lambda to build a serverless backened and use Amazon API Gateway to expose the Lambda function as a RESTful API. AWS Amplify is configured to host static resources for our web application. We use Artillery and CloudWatch for load testing and monitoring. 
 
 * [Click me to try our demo](https://master.d3saf47cr73tpe.amplifyapp.com/)
+* Our project is mainly divided into three parts. The specific steps and codes are in the `./sagemaker`, `./lambda_api` and `./amplify_frontend` folders.
+* Architecture
+
+  ![project_arch](assets/project_arch.png)
 
 ## Requirements
 * Build a containerized or PaaS machine learning prediction model and deploy it in a scalable, and elastic platform:
@@ -17,11 +21,10 @@ In this project, we build a PaaS machine learning prediction model and deploy it
       * Other (Upon Request)
 * Verify Elastic Scale-Up Performance via Load Test with Locust, Loader.io, or a similar load test framework. (Start with 1 container or endpoint) and verify 2 or more inference endpoints scale up to 1K requests per second.
 
-## Architecture
-
-The application architecture uses AWS Lambda, Amazon API Gateway and Amplify Console. Amplify Console provides continuous deployment and hosting of the static web resources. JavaScript executed in the browser sends and receives data from a public backend API built using Lambda and API Gateway.
-
-![project_arch](assets/project_arch.png)
+## Steps
+* [Train and deploy model on AWS Sagemaker, and build AWS Sagemaker Realtime Inference Endpoint with Autoscaling Configurations](./sagemaker/)
+* [API with Lambda function](./lambda_api/)
+* [Frontend with AWS Amplified](./amplify_frontend/)
 
 ## Results
 
@@ -51,10 +54,7 @@ The application architecture uses AWS Lambda, Amazon API Gateway and Amplify Con
 
   https://master.d3saf47cr73tpe.amplifyapp.com/
 
-## Steps
-* [Train and deploy model on AWS Sagemaker, and build AWS Sagemaker Realtime Inference Endpoint with Autoscaling Configurations](./sagemaker/)
-* [API with Lambda function](./lambda_api/)
-* [Frontend with AWS Amplified](./amplify_frontend/)
+
 
 ## Reference
 * [load_wine dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html)
