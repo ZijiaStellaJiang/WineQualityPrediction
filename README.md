@@ -1,6 +1,7 @@
 # IDS721-Team-Final-Project
-In this project, we build a PaaS machine learning prediction model and deploy it on AWS SageMaker. We also uses AWS Lambda to build a serverless backened and use Amazon API Gateway to expose the Lambda function as a RESTful API. AWS Amplify is configured to host static resources for our web application. We use Artillery and CloudWatch for load testing and monitoring. 
+In this project, we build a PaaS machine learning prediction model and deploy it on AWS SageMaker. We also use AWS Lambda to build a serverless backened and use Amazon API Gateway to expose the Lambda function as a RESTful API. AWS Amplify is configured to host static resources for our web application. We use Artillery and CloudWatch for load testing and monitoring. 
 
+* Team members: Huilin Jin(hj146), Yuzhou Zhao(yz735), Zijia Jiang(zj68), Airu Song(as1134)
 * [Click me to try our demo](https://master.d3saf47cr73tpe.amplifyapp.com/)
 * Our project is mainly divided into three parts. The specific steps and codes are in the `./sagemaker`, `./lambda_api` and `./amplify_frontend` folders.
 * Architecture
