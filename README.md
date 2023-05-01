@@ -24,7 +24,7 @@ In this project, we build a PaaS machine learning prediction model and deploy it
 
 ## Steps
 * [Train and deploy model on AWS Sagemaker, and build AWS Sagemaker Realtime Inference Endpoint with Autoscaling Configurations](./sagemaker/)
-* [API with Lambda function](./lambda_api/)
+* [Serverless backend with AWS API Gateway + Lambda function](./lambda_api/)
 * [Frontend with AWS Amplified](./amplify_frontend/)
 
 ## Results
